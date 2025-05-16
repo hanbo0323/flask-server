@@ -29,6 +29,8 @@ def callback():
 # ✅ 處理使用者傳來的文字
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    user_id = event.source.user_id
+    print("✅ 收到來自用戶 ID：", user_id)
     reply_text = f"你傳了：{event.message.text}"
     line_bot_api.reply_message(
         event.reply_token,
